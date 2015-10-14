@@ -6,6 +6,7 @@
 \usepackage{cleveref}
 \usepackage{footnote}
 \usepackage{url}
+\usepackage[inline]{enumitem}
 
 \newcommand{\citeneeded}{\textsuperscript{{[}citation needed{]}}}
 \newcommand{\TC}{tangled commit}
@@ -14,8 +15,7 @@
 \newcommand{\Gr}{Griotte}
 \newcommand{\code}[1]{\texttt{#1}}
 
-\title{Grouping Changes in Modern Code Review using Fine-Grained Code
-  Changes}
+\title{\Gr{}: Improving Code Review with Fine-Grained IDE Events}
 
 \author{\IEEEauthorblockN{Skip~Lentz}\IEEEauthorblockA{EEMCS\\Delft
     University of Technology} \and
@@ -25,22 +25,23 @@
 \begin{document}
 \maketitle{}
 \begin{abstract}
-  It often happens that a commit made by a developer contains two or
-  more mutually unrelated changes, making for a so-called
-  \textit{tangled commit}\citeneeded{}. This dramatically increases
-  the time it takes for reviewers to review the code.
+  Code review is a difficult process for multiple reasons:
+  \begin{enumerate*}
+  \item developers often create \textit{tangled commits},
+  \item commits may touch many different parts of a project,
+  \item commit messages can be inaccurate or wrong\citeneeded{} and
+  \item requesting a review for a change requires too much effort from
+    the perspective of the developer.
+  \end{enumerate*}
 
-  We propose a new strategy for grouping the changes in different
-  categories, thereby including additional information in the
-  review. We do this by using the information provided by fine-grained
-  code changes\citeneeded{} recorded by \textit{\Ep} in
-  the \textit{Pharo} IDE.
+  This work aims to propose a solution to these problems by exploiting
+  the information provided by fine-grained IDE events.
 
-  Furthermore, we aim to develop an implementation of a code review
-  tool using this strategy named \Gr{}.
+  To put this solution in practice, we will develop a code review tool
+  named \textit{\Gr} in the \textit{Pharo} environment.
 \end{abstract}
 \begin{IEEEkeywords}
-  code review, groups, fine-grained code changes, \Ep, \Gr, Pharo
+  code review, groups, fine-grained IDE events, \Ep, \Gr, Pharo
 \end{IEEEkeywords}
 
 \section{Problem Description}
