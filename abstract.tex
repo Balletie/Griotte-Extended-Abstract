@@ -25,11 +25,12 @@
 \begin{document}
 \maketitle{}
 \begin{abstract}
-  Code review is a difficult process for multiple reasons:
-  \begin{enumerate*}
+  Code review is a difficult process for several reasons, for example:
+  \begin{enumerate*}[label=(\arabic*)]
   \item developers often create \textit{tangled commits},
   \item commits may touch many different parts of a project,
-  \item commit messages can be inaccurate or wrong\citeneeded{} and
+  \item many changes are shadowed,
+  \item commit messages can be inaccurate or wrong and
   \item requesting a review for a change requires too much effort from
     the perspective of the developer.
   \end{enumerate*}
@@ -46,32 +47,58 @@
 
 \section{Problem Description}
 \label{sec:problem-description}
-Code review is a difficult task for a reviewer to perform, resulting
-in loss of time \citeneeded{}. This is partly due to the following two
-factors: \TC{}s and the line-based nature of common code review
-tools. We will explain the two factors, and how they cause the
-difficulty of code review.
+Modern Code Review (MCR) is an important mechanism for quality
+assurance in software evolution: it provides feedback and avoids
+introducing bugs. However, it is a difficult task for a reviewer to
+perform. This is due to multiple reasons, such as:
 
-\subsection{Tangled Commits}
-\label{sec:tangled-commits}
+\paragraph{Tangled commit}
+
 A \TC{} is a commit which is the result of multiple, mutually
-unrelated changes. A commit could consist of a refactoring, some
-formatting changes, and a change to the body of a method (the latter
-being the change for which the commit is actually meant).
+unrelated changes. A commit could consist of a refactoring
+\cite{Fowl99a}, some formatting changes, and a change to the body of a
+method (the latter being the change for which the commit is actually
+meant).
 
-This makes it harder to review for obvious reasons. Suddenly, multiple
-changes are being treated as one change.
+The process of understanding a change is difficult on its own. In the
+case of a tangled commit, the reviewer in addition has to understand
+several unrelated changes at the same time.
 
-\subsection{Line-based changes}
-\label{sec:line-based-changes}
-Code review tools often feature a change browser (or \textit{diff
-  browser}) with the ability of commenting on lines. One line can
-correspond to multiple changes, or vice versa. This is what is meant
-by the line-based nature of code review tools.
+Developers often create tangled commits \citeneeded{}.
 
-This is a problem in the case of a tangled commit in which changes
-overlap on a single line. If one would comment on that line, it is not
-clear to which change it belongs.
+\paragraph{Line-based changes}
+
+Commits may have changes scattered across many different parts of a
+project. A refactoring of a method name is a good example of this,
+since all places where the method is referenced are also
+changed. However, even though they belong together, they are not shown
+together within the changes browser of the code review tool. For this
+reason, we say that these review tools are \textit{line-based}.
+
+Thus, the reviewer has to analyze the changes line-by-line to conclude
+that it was a refactoring. They are not grouped together.
+
+\paragraph{Shadowed changes}
+
+Negara \textit{et al.} found that 37\% of changes are shadowed and
+thus do not reach the Version Control System
+(VCS)\cite{Nega12a}\textbf{{[}TODO: correct way to cite?{]}}. This can
+be important information for the reviewer to find out how the
+developer arrived at their solution.
+
+\paragraph{Wrong or lack of commit descriptions}
+
+Commit descriptions can help the reviewer in understanding the reason
+of a change. Without the description, the reason for a change is
+lost. Furthermore, a wrong description has the potential to mislead
+the reviewer.
+
+Commit messages are often inaccurate or wrong\citeneeded{}.
+
+\paragraph{Effort in sharing a change}
+
+\textbf{{[}TODO: requires expanding{]}}requesting a review for a change requires too much effort from
+  the perspective of the developer.
 
 \section{Proposed Solution}
 \label{sec:proposed-solution}
