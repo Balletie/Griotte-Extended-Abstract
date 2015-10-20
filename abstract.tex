@@ -184,15 +184,34 @@ and grouping using fine-grained IDE events \todo{Which terminology
 
 \todo{Maybe not?}
 
-\section{First-Class Code Changes from \Ep}
-\label{sec:first-class-ide}
+\section{Implementation: Griotte}
+\label{sec:impl-griotte}
+
+To put the solution approaches mentioned in
+\cref{sec:proposed-solution} in practice, we will develop a code
+review tool named \textit{Griotte}. The core concept in the
+architecture of Griotte is the usage of existing services which
+provide code review features (\textit{e.g.} \textit{GitHub} or
+\textit{Gerrit}). See \cref{fig:diagram} for a simplified diagram of the
+architecture.
+
+Griotte will be implemented in the \textit{Pharo}
+environment\cite{Blac09a}\footnote{Pharo: \url{http://pharo.org}}.
+Furthermore, we will use \textit{Epicea}\cite{Dias13a} to monitor and
+access fine-grained IDE events.
+
+\subsection{Epicea}
+\label{sec:epicea}
+
 \Ep\ is a Pharo project providing a model for first-class code changes
-and related IDE tools. \Ep\ records code changes during development,
+and related IDE tools. \Ep\ records IDE events during development,
 allowing us to analyze a more fine-grained history of the
 codebase. This is in contrast with the code change information
-available from a VCS repository, which is much more
-coarse-grained. The model of \Ep\ can be divided into two parts:
-\textit{high-level} and \textit{low-level} code changes.
+available from a VCS repository, which is much more coarse-grained.
+
+The model of \Ep\ is described by \ref{fig:ide-event-class-model}. It
+can be devided into \textit{low-level} and \textit{high-level} IDE
+events.
 
 Low-level code changes are additions, deletions or modifications of
 program components such as classes or methods. Examples of these code
