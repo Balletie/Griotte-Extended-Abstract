@@ -158,7 +158,12 @@ information which is typically shadowed by other changes.
 \paragraph{Grouping changes}
 
 An approach to solve problems a) and b) % TODO: use references
-is to group changes. \todo{How does this solve these problems?}
+is to group changes. A group of changes consists of one or more code
+changes which are mutually related, along with a descriptive label
+(e.g. a refactoring of method name \code{foo} to \code{bar}). By
+grouping the changes, we change the perspective from a
+\textit{line}-based review tool to a \textit{change}-based review
+tool.
 
 Tao and Kim\cite{Tao15a} have explored grouping (referred to as
 \textit{partitioning}) tangled commits (\textit{composite changes}) in
