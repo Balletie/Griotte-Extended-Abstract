@@ -2,6 +2,7 @@
 \documentclass[conference,a4paper]{IEEEtran}
 
 %\usepackage{showframe}
+\usepackage[subpreambles=true]{standalone}
 \usepackage{graphicx}
 \usepackage{cleveref}
 \usepackage{footnote}
@@ -103,20 +104,71 @@ Commit messages are often inaccurate or wrong\citeneeded{}.
 
 \section{Proposed Solution}
 \label{sec:proposed-solution}
-We propose a solution to this problem by introducing the concept of
-groups. A group consists of one or more code changes which are
-mutually related, accompanied with a descriptive label. An example
-would be the refactoring of a method's name from \code{foo} to
-\code{bar}. By grouping changes, we change the perspective from a
-\textit{line}-based review tool, to a \textit{change}-based review
-tool.
+This section aims to propose several solution approaches which use the
+information provided by \textit{fine-grained IDE events}. First, we
+will explain what fine-grained IDE events are. Then we will discuss
+how they might be used to solve the problems mentioned in
+\cref{sec:problem-description}.
 
-In practice, these groups can be created automatically (as is the case
-for refactoring changes), or manually using specially designed tools.
+\subsection{Fine-grained IDE events}
+\label{sec:fine-grained-ide}
 
-To be able to group code changes, we need fine-grained
-information. This information is recorded by --- and collected from
---- \textit{\Ep}, which will be discussed in the next section.
+Normally when a developer works on a feature or fixes a bug, the
+changes are recorded at the point of commit. The actions the developer
+performed to get to that state are lost, and collapsed into one
+change. These intermediate actions are known as \textit{fine-grained
+  IDE events} --- in contrast with the \textit{coarse-grained} changes
+one might find in a VCS commit.
+
+An example of fine-grained IDE events can be found in
+\cref{fig:ide-event-class-model}. The events described in the diagram
+are recorded and stored as the developer is working in the IDE.
+\begin{figure}[h]
+  \centering
+  \resizebox{!}{0.3\paperheight}{%
+    \input{events_model_diagram}
+  }
+  \caption{A minimized class diagram of a model for fine-grained IDE
+    events}
+  \label{fig:ide-event-class-model}
+\end{figure}
+
+Fine-grained IDE events have been found to supply significant
+additional information compared to the changes found in a typical
+VCS. Concretely, 37\% of the changes performed do not reach the
+VCS\cite{Nega12a}, which could otherwise be recorded as fine-grained
+IDE events.
+
+\todo{Mention Epicea here or later?}
+
+\subsection{Code review using fine-grained IDE events}
+\label{sec:code-review-using-1}
+
+There are several approaches where fine-grained IDE events are useful
+in the context of code review. Each approach corresponds to one or
+more of the problems listed in \cref{sec:problem-description}.
+
+\paragraph{Displaying fine-grained history}
+
+A trivial solution approach is simply displaying the information to
+the reviewer. This allows the reviewer to see how a developer evolved
+to the submitted change. This solves problem c) in that it shows extra
+information which is typically shadowed by other changes.
+
+\paragraph{Grouping changes}
+
+An approach to solve problems a) and b) % TODO: use references
+is to group changes. \todo{How does this solve these problems?}
+
+Tao and Kim\cite{Tao15a} have explored grouping (referred to as
+\textit{partitioning}) tangled commits (\textit{composite changes}) in
+the context of code review. We aim to expand on this solution by
+grouping changes using fine-grained IDE events instead of the more
+coarse-grained information available in a VCS repository.
+
+\paragraph{Generating commit descriptions}
+
+\todo{Maybe not?}
 
 \section{First-Class Code Changes from \Ep}
 \label{sec:first-class-ide}
