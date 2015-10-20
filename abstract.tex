@@ -2,6 +2,7 @@
 \documentclass[conference,a4paper]{IEEEtran}
 
 %\usepackage{showframe}
+\usepackage{comment}
 \usepackage[subpreambles=true]{standalone}
 \usepackage{graphicx}
 \usepackage{hyperref} % Use before cleveref
@@ -205,6 +206,8 @@ environment\cite{Blac09a}\footnote{Pharo: \url{http://pharo.org}}.
 Furthermore, we will use \textit{Epicea}\cite{Dias13a} to monitor and
 access fine-grained IDE events.
 
+\todo{Go more in-depth on implementation.}
+
 \subsection{Epicea}
 \label{sec:epicea}
 
@@ -231,6 +234,7 @@ listens to events in Pharo as they happen, and converts them to the
 first-class code change model objects described above. These objects
 are then stored and persisted in a log.
 
+\begin{comment}
 \section{Forming Groups using First-Class Code Changes}
 \label{sec:code-review-using}
 There are different strategies we can employ to form groups of code
@@ -307,9 +311,13 @@ as GitHub or Gerrit, we can use the
 \code{git-notes}\footnote{Documentation:
   \url{http://git-scm.com/docs/git-notes}} model to store metadata on
 commits.
+\end{comment}
 
 \section{Conclusion}
 \label{sec:conclusion}
+
+\todo{Update conclusion according to restructure of document}
+
 To conclude and summarize, we presented the problems with Modern Code
 Review, namely that it does not handle tangled commits, and uses a
 line-based approach for review.
