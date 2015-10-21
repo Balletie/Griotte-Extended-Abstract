@@ -217,7 +217,7 @@ allowing us to analyze a more fine-grained history of the
 codebase. This is in contrast with the code change information
 available from a VCS repository, which is much more coarse-grained.
 
-The model of \Ep\ is described by \ref{fig:ide-event-class-model}. It
+The model of \Ep\ is described by \cref{fig:ide-event-class-model}. It
 can be divided into \textit{low-level} and \textit{high-level} IDE
 events.
 
@@ -231,8 +231,9 @@ known as high-level code changes.
 
 \Ep\ records this data by means of the \textit{\Ep\ Monitor}, which
 listens to events in Pharo as they happen, and converts them to the
-first-class code change model objects described above. These objects
-are then stored and persisted in a log.
+first-class code change model objects described in
+\cref{fig:ide-event-class-model}. These objects are then stored and
+persisted in a log.
 
 \begin{comment}
 \section{Forming Groups using First-Class Code Changes}
