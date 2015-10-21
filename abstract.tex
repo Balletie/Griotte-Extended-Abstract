@@ -345,23 +345,40 @@ commits.
 \section{Conclusion}
 \label{sec:conclusion}
 
-\todo{Update conclusion according to restructure of document}
+To conclude and summarize, we presented the following difficulties
+with code review:
+\begin{enumerate}[label=(\arabic*)]
+\item Developers often create \textit{tangled commits}. Reviewers have
+  to understand multiple unrelated changes at the same time.
+\item Code review tools are line-based. Commits may touch many
+  different parts of a project, and the reviewer has to analyze each
+  change line-by-line even if they are related to the same change.
+\item Many changes are shadowed, which can be important information
+  for the reviewer.
+\item Commit messages can be inaccurate or wrong, which misleads the
+  reviewer or does not provide enough information.
+\item Requesting a review for a change requires too much effort from
+  the perspective of the developer.
+\end{enumerate}
 
-To conclude and summarize, we presented the problems with Modern Code
-Review, namely that it does not handle tangled commits, and uses a
-line-based approach for review.
-
-We proposed an approach aiming to solve these problems, namely a
-change-based form of code review using the concept of groups. The
-groups are formed using fine-grained code changes provided by \Ep. We
-divided the forming of groups into two categories, automatic and
-manual.
+We proposed several solution approaches which use fine-grained IDE
+events in the context of code review:
+\begin{enumerate}[label=(\arabic*)]
+\item Display fine-grained history to the reviewer, to provide extra
+  information if it's needed.
+\item Group mutually related changes together using the fine-grained
+  IDE events as input.
+\item Generate accurate commit descriptions using the information
+  provided by fine-grained IDE events.
+\end{enumerate}
 
 Furthermore, we presented our proposal for an implementation of a code
-review tool using the concept of groups, named \Gr. A key idea of our
-implementation is the use of existing external services such as GitHub
-and Gerrit. We discussed the benefits and limitations of this
-approach.
+review tool named Griotte which \begin{enumerate*}[label=(\arabic*)]
+\item uses these approaches, \item is implemented in the Pharo
+  environment and \item uses Epicea as a source for fine-grained IDE
+  events \end{enumerate*}. A key idea of our implementation is the use
+of existing external services such as GitHub and Gerrit. We discussed
+the benefits and limitations of this approach.
 
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,rmod,others}
