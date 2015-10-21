@@ -206,7 +206,8 @@ environment\cite{Blac09a}\footnote{Pharo: \url{http://pharo.org}}.
 Furthermore, we will use \textit{Epicea}\cite{Dias13a} to monitor and
 access fine-grained IDE events.
 
-\todo{Go more in-depth on implementation.}
+First, a brief description of Epicea will be given. Afterwards, we
+will discuss the implementation of Griotte in more detail.
 
 \subsection{Epicea}
 \label{sec:epicea}
@@ -234,6 +235,33 @@ listens to events in Pharo as they happen, and converts them to the
 first-class code change model objects described in
 \cref{fig:ide-event-class-model}. These objects are then stored and
 persisted in a log.
+
+\subsection{Griotte}
+\label{sec:griotte}
+
+An important part of Griotte is the usage of existing services which
+provide code review features. Examples of these services are
+\textit{GitHub} or \textit{Gerrit}. The extra information provided by
+the fine-grained IDE events will be stored as metadata. For example,
+in \code{git}-based repository services, we can use
+\code{git-notes}\footnote{Documentation:
+  \url{http://git-scm.com/docs/git-notes}} to store metadata on
+commits. The Griotte client within Pharo will then be used for the
+features using the fine-grained IDE events.
+
+A good advantage is that this makes it possible to use Griotte in
+parallel with other workflows, since the metadata is stored in a
+manner transparent to common workflows.
+
+Furthermore, we don't need to maintain our own servers if we choose to
+use GitHub or similar services. The maintenance of both server-side
+code and the servers will be done by others.
+
+A disadvantage is that we need to sacrifice some of our own
+flexibility, and rely on the flexibility of the API's of external
+services like GitHub. In a research project this might seem less
+ideal, as one would like to be free to explore different
+options.
 
 \begin{comment}
 \section{Forming Groups using First-Class Code Changes}
