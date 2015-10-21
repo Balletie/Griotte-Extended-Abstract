@@ -221,13 +221,13 @@ The model of \Ep\ is described by \cref{fig:ide-event-class-model}. It
 can be divided into \textit{low-level} and \textit{high-level} IDE
 events.
 
-Low-level code changes are additions, deletions or modifications of
-program components such as classes or methods. Examples of these code
-changes are a method modification, a class addition, etc.
+Low-level IDE events are code changes --- additions, deletions or
+modifications --- of program components such as classes or
+methods. Examples are a method modification, a class addition, etc.
 
 Secondly, \Ep\ records IDE events such as a test run (and its
 outcome), refactorings, and loading a version from the VCS. These are
-known as high-level code changes.
+known as high-level IDE events.
 
 \Ep\ records this data by means of the \textit{\Ep\ Monitor}, which
 listens to events in Pharo as they happen, and converts them to the
