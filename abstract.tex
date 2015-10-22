@@ -110,7 +110,7 @@ This section aims to propose several solution approaches which use the
 information provided by \textit{fine-grained IDE events}. First, we
 will explain what fine-grained IDE events are. Then we will discuss
 how they might be used to solve the problems mentioned in
-\cref{sec:problem-description}.
+\Cref{sec:problem-description}.
 
 \subsection{Fine-grained IDE events}
 \label{sec:fine-grained-ide}
@@ -123,7 +123,7 @@ one change. These intermediate actions are known as
 \textit{coarse-grained} changes one might find in a VCS commit.
 
 An example of fine-grained IDE events can be found in
-\cref{fig:ide-event-class-model}. The events described in the diagram
+\Cref{fig:ide-event-class-model}. The events described in the diagram
 are recorded and stored as the developer is working in the IDE.
 \begin{figure}[h]
   \centering
@@ -148,7 +148,7 @@ IDE events.
 
 There are several approaches where fine-grained IDE events are useful
 in the context of code review. Each approach corresponds to one or
-more of the problems listed in \cref{sec:problem-description}.
+more of the problems listed in \Cref{sec:problem-description}.
 
 \paragraph{Displaying fine-grained history}
 
@@ -189,11 +189,11 @@ and grouping using fine-grained IDE events \todo{Which terminology
 \label{sec:impl-griotte}
 
 To put the solution approaches mentioned in
-\cref{sec:proposed-solution} in practice, we will develop a code
+\Cref{sec:proposed-solution} in practice, we will develop a code
 review tool named \textit{Griotte}. The core concept in the
 architecture of Griotte is the usage of existing services which
 provide code review features (\textit{e.g.} \textit{GitHub} or
-\textit{Gerrit}). See \cref{fig:diagram} for a simplified diagram of
+\textit{Gerrit}). See \Cref{fig:diagram} for a simplified diagram of
 the architecture.
 \begin{figure}[t]
   \centering{\resizebox{\linewidth}{!}{\includegraphics{idea.png}}}
@@ -218,7 +218,7 @@ allowing us to analyze a more fine-grained history of the
 codebase. This is in contrast with the code change information
 available from a VCS repository, which is much more coarse-grained.
 
-The model of \Ep\ is described by \cref{fig:ide-event-class-model}. It
+The model of \Ep\ is described by \Cref{fig:ide-event-class-model}. It
 can be divided into \textit{low-level} and \textit{high-level} IDE
 events.
 
@@ -233,7 +233,7 @@ known as high-level IDE events.
 \Ep\ records this data by means of the \textit{\Ep\ Monitor}, which
 listens to events in Pharo as they happen, and converts them to the
 first-class code change model objects described in
-\cref{fig:ide-event-class-model}. These objects are then stored and
+\Cref{fig:ide-event-class-model}. These objects are then stored and
 persisted in a log.
 
 \subsection{Griotte}
@@ -311,7 +311,7 @@ We aim to implement a code review tool named \textit{\Gr} for Pharo
 which employs the concept of groups. This section aims to present the
 implementation of the tool. An important part of the tool is that it
 leverages existing services providing code review features such as
-\textit{GitHub} or \textit{Gerrit}. See \cref{fig:diagram} for a
+\textit{GitHub} or \textit{Gerrit}. See \Cref{fig:diagram} for a
 simplified diagram of the architecture.
 
 \subsection{Leveraging existing services}
