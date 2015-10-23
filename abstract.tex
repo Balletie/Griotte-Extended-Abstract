@@ -119,16 +119,17 @@ between starting work and the point of commit are known as
 \textit{coarse-grained} changes one might find in a VCS (Version
 Control System) commit.
 
-An example of fine-grained IDE events can be found in
-\Cref{fig:ide-event-class-model}. The events described in the diagram
-are recorded and stored as the developer is working in the IDE.
+Some examples of fine-grained IDE events are a method modification, a
+class addition, a refactoring or a test run. The events are recorded
+and stored as the developer is working in the IDE. A minimized version
+of a model can be found in \Cref{fig:ide-event-class-model}.
 \begin{figure}[h]
   \centering
   \resizebox{!}{0.3\textheight}{%
     \input{events_model_diagram}
   }
-  \caption{A minimized class diagram of a model for fine-grained IDE
-    events}
+  \caption{A minimized class hierarchy of a model for fine-grained IDE
+    events as described by Dias \textit{et. al.}\cite{Dias15a}}
   \label{fig:ide-event-class-model}
 \end{figure}
 
