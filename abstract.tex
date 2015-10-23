@@ -100,7 +100,7 @@ Commit messages are often inaccurate or wrong\citeneeded{}.
 
 \section{Proposed Solution}
 \label{sec:proposed-solution}
-This section aims to propose several solution approaches which use the
+This section aims to propose several approaches which use the
 information provided by \textit{fine-grained IDE events}. First, we
 will explain what fine-grained IDE events are. Then we will discuss
 how they might be used to solve the problems mentioned in
@@ -143,10 +143,10 @@ more of the problems listed in \Cref{sec:problem-description}.
 
 \paragraph{Displaying fine-grained history}
 
-A solution approach is to display the information to the
-reviewer. This allows the reviewer to see how a developer evolved to
-the submitted change. This solves problem c) in that the review tool
-shows extra information which is typically shadowed by other changes.
+An approach is to display the information to the reviewer. This allows
+the reviewer to see how a developer evolved to the submitted
+change. This solves problem c) in that the review tool shows extra
+information which is typically shadowed by other changes.
 
 \paragraph{Grouping changes}
 
@@ -179,13 +179,12 @@ and grouping using fine-grained IDE events \todo{Which terminology
 \section{Implementation: Griotte}
 \label{sec:impl-griotte}
 
-To put the solution approaches mentioned in
-\Cref{sec:proposed-solution} in practice, we will develop a code
-review tool named \textit{Griotte}. The core concept in the
-architecture of Griotte is the usage of existing services which
-provide code review features (\textit{e.g.} \textit{GitHub} or
-\textit{Gerrit}). See \Cref{fig:diagram} for a simplified diagram of
-the architecture.
+To put the approaches mentioned in \Cref{sec:proposed-solution} in
+practice, we will develop a code review tool named
+\textit{Griotte}. The core concept in the architecture of Griotte is
+the usage of existing services which provide code review features
+(\textit{e.g.} \textit{GitHub} or \textit{Gerrit}). See
+\Cref{fig:diagram} for a simplified diagram of the architecture.
 \begin{figure}[t]
   \centering{\resizebox{\linewidth}{!}{\includegraphics{idea.png}}}
   \caption{Simplified architecture diagram of Griotte}
@@ -350,8 +349,8 @@ with code review:
   reviewer or does not provide enough information.
 \end{enumerate}
 
-We proposed several solution approaches which use fine-grained IDE
-events in the context of code review:
+We proposed several approaches which use fine-grained IDE events in
+the context of code review:
 \begin{enumerate}[label=(\arabic*)]
 \item Display fine-grained history to the reviewer, to provide extra
   information if it's needed.
