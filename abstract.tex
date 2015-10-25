@@ -69,7 +69,7 @@ several unrelated changes at the same time.
 
 Herzig \& Zeller found in a study of five open-source Java projects,
 that up to 15\% of all bug fixes consist of multiple unrelated
-changes\cite{Herz11a}.
+changes~\cite{Herz11a}.
 
 \paragraph{Line-based view}
 
@@ -87,7 +87,7 @@ that it was a refactoring, which is not a trivial task.
 
 Negara \textit{et al.} found that 37\% of changes are
 \textit{shadowed}, \textit{i.e.} overridden by subsequent changes in
-the same line, file and commit\cite{Nega12a}. The shadowed changes can
+the same line, file and commit~\cite{Nega12a}. The shadowed changes can
 be important information for the reviewer to find out how the
 developer arrived at their solution.
 
@@ -129,7 +129,7 @@ of a model can be found in \Cref{fig:ide-event-class-model}.
     \input{events_model_diagram}
   }
   \caption{A minimized class hierarchy of a model for fine-grained IDE
-    events as described by Dias \textit{et. al.}\cite{Dias15a}}
+    events as described by Dias \textit{et. al.}~\cite{Dias15a}}
   \label{fig:ide-event-class-model}
 \end{figure}
 
@@ -144,12 +144,12 @@ more of the problems listed in \Cref{sec:problem-description}.
 
 An approach is to display the information to the reviewer. This allows
 the reviewer to see how a developer evolved to the submitted
-change. This solves problem c) in that the review tool shows extra
+change. This solves problem~c) in that the review tool shows extra
 information which is typically shadowed by other changes.
 
 \paragraph{Grouping changes}
 
-An approach to solve problems a) and b) % TODO: use references
+An approach to solve problems~a) and~b) % TODO: use references
 is to group changes. A group of changes consists of one or more code
 changes which are mutually related, along with a descriptive label
 (e.g. a refactoring of method name \code{foo} to \code{bar}). By
@@ -157,13 +157,13 @@ grouping the changes, we change the perspective from a
 \textit{line}-based review tool to a \textit{change}-based review
 tool.
 
-Work has been done in this area: Tao and Kim\cite{Tao15a} have
+Work has been done in this area: Tao and Kim~\cite{Tao15a} have
 explored grouping (referred to as \textit{partitioning}) tangled
 commits (\textit{composite changes}) in the context of code
 review. However, they partitioned changes using only the information
 available from the VCS.
 
-Dias \textit{et al.}\cite{Dias15a} have done work on untangling
+Dias \textit{et al.}~\cite{Dias15a} have done work on untangling
 commits using fine-grained IDE events, with good results; namely 88\%
 accuracy in determining whether two code changes belong together.
 
@@ -172,7 +172,7 @@ and grouping using fine-grained IDE events.
 
 \paragraph{Generating commit descriptions}
 
-To solve problem d), we can assist the developer in writing commit
+To solve problem~d), we can assist the developer in writing commit
 descriptions. For example, if the IDE recorded the renaming of a
 method \code{foo} to the name \code{bar}, a commit description such as
 \code{Method rename: foo -> bar} can be generated. Using this
@@ -197,8 +197,8 @@ simplified diagram of the architecture.
 \end{figure}
 
 Griotte will be implemented in the \textit{Pharo}
-IDE\cite{Blac09a}\footnote{Pharo: \url{http://pharo.org}}.
-Furthermore, we will use \textit{Epicea}\cite{Dias13a} to monitor and
+IDE~\cite{Blac09a}\footnote{Pharo: \url{http://pharo.org}}.
+Furthermore, we will use \textit{Epicea}~\cite{Dias13a} to monitor and
 access fine-grained IDE events.
 
 First, a brief description of Epicea is be given. Afterwards, we
@@ -286,7 +286,7 @@ code more than there being no label at all.
 
 We foresee a challenge in this approach; namely that many changes are
 shadowed or undone and thus do not reach the
-VCS\cite{Nega12a}. Detecting this is not trivial, but necessary to
+VCS~\cite{Nega12a}. Detecting this is not trivial, but necessary to
 reduce the unneeded groups in the output.
 
 \subsection{Manually forming groups}
@@ -297,7 +297,7 @@ this requires us to count on the assistance of the developer. A
 separate tool for this could therefore prove useful.
 
 An example of such a tool is the \textit{\Ep\ Task
-  Clusterer}\cite{Dias15a}, which provides the developer with an
+  Clusterer}~\cite{Dias15a}, which provides the developer with an
 intuitive user interface to group ``tasks''. In this context, a task
 refers to the resulting code of resolving an issue or bug-report.
 
