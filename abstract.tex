@@ -1,8 +1,6 @@
 %\newcommand{\CLASSINPUTbottomtextmargin}{20mm}
 \documentclass[conference,a4paper]{IEEEtran}
 
-%\usepackage{showframe}
-\usepackage{comment}
 \usepackage[subpreambles=true]{standalone}
 \usepackage{graphicx}
 \usepackage{hyperref} % Use before cleveref
@@ -253,85 +251,6 @@ flexibility, and rely on the flexibility of the API's of external
 services like GitHub. In a research project this might seem less
 ideal, as one would like to be free to explore different
 options.
-
-\begin{comment}
-\section{Forming Groups using First-Class Code Changes}
-\label{sec:code-review-using}
-There are different strategies we can employ to form groups of code
-changes. In the simplest sense, they can be formed automatically or
-manually. In this section we discuss which strategy --- automatic or
-manual --- is the right one for various kinds of groups.
-
-\subsection{Automatically forming groups}
-\label{sec:autom-form-groups}
-The automatic approach is likely the most suitable for code changes
-done by a refactoring. Since refactorings are provided with rich
-information in the Epicea model, forming this code change as a group
-and creating a descriptive label should be straightforward.
-
-Another approach is comparing the \textit{abstract syntax tree}\ (AST)
-to detect whether or not the code change entails a change of behavior
-in the program. While the detection of this is straightforward,
-creating a descriptive label is less so. For example, both the
-addition of a comment and a formatting in the body of a method cause
-no change in the AST. Thus, in this case, the labels of the groups
-become less descriptive. However, even a non-descriptive label such as
-``No change in behavior'' assists the reviewer in understanding the
-code more than there being no label at all.
-
-We foresee a challenge in this approach; namely that many changes are
-shadowed or undone and thus do not reach the
-VCS~\cite{Nega12a}. Detecting this is not trivial, but necessary to
-reduce the unneeded groups in the output.
-
-\subsection{Manually forming groups}
-\label{sec:manu-form-groups}
-When groups are formed manually, we have the benefit of being able to
-create a very precise label for the group. An obvious downside is that
-this requires us to count on the assistance of the developer. A
-separate tool for this could therefore prove useful.
-
-An example of such a tool is the \textit{\Ep\ Task
-  Clusterer}~\cite{Dias15a}, which provides the developer with an
-intuitive user interface to group ``tasks''. In this context, a task
-refers to the resulting code of resolving an issue or bug-report.
-
-\section{Implementation}
-\label{sec:implementation}
-We aim to implement a code review tool named \textit{\Gr} for Pharo
-which employs the concept of groups. This section aims to present the
-implementation of the tool. An important part of the tool is that it
-leverages existing services providing code review features such as
-\textit{GitHub} or \textit{Gerrit}. See \Cref{fig:diagram} for a
-simplified diagram of the architecture.
-
-\subsection{Leveraging existing services}
-\label{sec:lever-exist-serv}
-A key part of our implementation will be the use of existing
-services. We discuss the advantages and disadvantages, and how this
-approach is to be implemented.
-
-An advantage is that this allows us to alleviate ourselves from part
-of the maintenance of the code review tool. This includes both server
-maintenance and server-side code maintenance. Furthermore, we get
-security and additional functionality for free.
-
-A disadvantage is that we need to sacrifice some of our own
-flexibility, and rely on the flexibility of the API's of external
-services like GitHub. In a research project this might seem less
-ideal, as one would like to be free to explore different
-options. However, we feel that we have found the middle way between a
-pragmatic solution and a more research oriented solution.
-
-The idea is that the special features which use the concept of groups
-are to be accessible only client-side, i.e. from within Pharo. The
-information necessary for the groups can be stored as metadata on the
-external service. For example, in the case of git-based services such
-as GitHub or Gerrit, we can use the
-\code{git-notes}\footnote{Documentation:
-  \url{http://git-scm.com/docs/git-notes}} model to store metadata on
-commits.
-\end{comment}
 
 \section{Conclusion}
 \label{sec:conclusion}
