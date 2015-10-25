@@ -11,13 +11,11 @@
 \usepackage{url}
 \usepackage[inline]{enumitem}
 
-\newcommand{\citeneeded}{\textbf{{[}citation needed{]}}}
 \newcommand{\TC}{tangled commit}
 \newcommand{\GCR}{Gerrit Code Review}
 \newcommand{\Ep}{Epicea}
 \newcommand{\Gr}{Griotte}
 \newcommand{\code}[1]{\texttt{#1}}
-\newcommand{\todo}[1]{\textbf{\textcolor{red}{{[}TODO: #1{]}}}}
 
 \title{\Gr{}: Improving Code Review\\with Fine-Grained IDE Events}
 
@@ -98,8 +96,6 @@ of a change. Without the description, the reason for a change is
 lost. Furthermore, a wrong description has the potential to mislead
 the reviewer.
 
-%TODO: Expand on this
-%TODO: Commit messages are often inaccurate or wrong\citeneeded{}.
 \section{Proposed Solution}
 \label{sec:proposed-solution}
 This section aims to propose several approaches which use the
@@ -149,13 +145,12 @@ information which is typically shadowed by other changes.
 
 \paragraph{Grouping changes}
 
-An approach to solve problems~a) and~b) % TODO: use references
-is to group changes. A group of changes consists of one or more code
-changes which are mutually related, along with a descriptive label
-(e.g. a refactoring of method name \code{foo} to \code{bar}). By
-grouping the changes, we change the perspective from a
-\textit{line}-based review tool to a \textit{change}-based review
-tool.
+An approach to solve problems~a) and~b) is to group changes. A group
+of changes consists of one or more code changes which are mutually
+related, along with a descriptive label (e.g. a refactoring of method
+name \code{foo} to \code{bar}). By grouping the changes, we change the
+perspective from a \textit{line}-based review tool to a
+\textit{change}-based review tool.
 
 Work has been done in this area: Tao and Kim~\cite{Tao15a} have
 explored grouping (referred to as \textit{partitioning}) tangled
